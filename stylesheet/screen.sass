@@ -1,0 +1,185 @@
+$dark-grey:#404040
+
+=transform($transforms)
+  -moz-transform: $transforms
+  -o-transform: $transforms
+  -ms-transform: $transforms
+  -webkit-transform: $transforms
+
+=flexflow($flow,$flow1)
+  -webkit-flex-flow:  $flow $flow1
+  -moz-flex-flow:   $flow $flow1
+  -ms-flex-flow:    $flow $flow1
+  flex-flow:        $flow $flow1
+
+=flexdisplay()
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+
+=just_content()
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+
+=align_content($value)
+  -webkit-align-content: $value
+  -ms-flex-line-pack: $value
+  align-content: $value
+
+=align_items($value)
+  -webkit-align-items: $value
+  -ms-flex-align: $value
+  align-items: $value
+
+=flex_numb($somevalue)
+  -webkit-flex: $somevalue
+  -ms-flex: $somevalue
+  flex: $somevalue
+
+=user_select($none)
+  -webkit-user-select: $none
+  -moz-user-select:    $none
+  -ms-user-select:     $none
+  user-select:         $none
+
+.video_player
+  margin: 50px auto
+  width: 80%
+  height: auto
+  min-width: 360px
+  min-height: 240px
+  position: relative
+  background: black
+  z-index: 1
+  +user-select(none)
+  video
+    width: 100%
+    height: 100%
+    margin-bottom: -5px
+    &::-webkit-media-controls
+      display: none
+    &::-webkit-media-controls-enclosure
+      display: none
+  .big_buttons
+    position: absolute
+    left: 50%
+    top: 50%
+    +transform(translate(-50%,-50%))
+    z-index: 2147483647
+    visibility: visible
+    .button
+      background: url('../img/big_play_button.png') no-repeat center center
+      min-width: 128px
+      min-height: 128px
+      cursor: pointer
+      opacity: 0.5
+      display: block
+      &:hover
+        opacity: 1
+      &.big_play
+        background: url('') no-repeat center center
+        display: none
+        &:hover
+          opacity: 1
+      &.big_end
+        background: url('../img/replay_button.png') no-repeat center center
+        display: block
+        &:hover
+          opacity: 1
+  .control_panel
+    background: #7E9AA3
+    min-height: 25px
+    +flexdisplay()
+    +flexflow(row,nowrap)
+    +just_content()
+    +align_content(center)
+    +align-items(center)
+    position: absolute
+    bottom: -1px
+    left: 0px
+    right: 0px
+    z-index: 2147483647
+    .ppr
+      +flex_numb(0 1 20px)
+      margin: 0 5px
+      background: url('../img/small_play.png')  no-repeat center center
+      opacity: 0.5
+      display: inline-block
+      cursor: pointer
+      min-width: 25px
+      min-height: 25px
+      &:hover
+        opacity: 1
+      &.small_pause
+        background: url('../img/pause.png') no-repeat center center
+        opacity: 0.5
+        &:hover
+          opacity: 1
+      &.small_end
+        background: url('../img/replay_small.png') no-repeat center center
+        opacity: 0.5
+        &:hover
+          opacity: 1
+    .time_bar
+      +flex_numb(0.1 0 70px)
+      margin: 0 5px
+      cursor: pointer
+      display: inline-block
+    .progress_bar
+      background: $dark-grey
+      height: 15px
+      width: 100%
+      display: inline-block
+      cursor: pointer
+      .progress_checker
+        width: 0%
+        background: #6f6f6f
+        height: 15px
+    .sound_bar
+      +flex_numb(0 0 20px)
+      min-width: 25px
+      min-height: 25px
+      background: url('../img/sound_up.png') no-repeat center center
+      margin: 0 20px
+      display: inline-block
+      cursor: pointer
+      opacity: 0.5
+      &:hover
+        opacity: 1
+      &.muted
+        background: url('../img/sound_off.png') no-repeat center center
+        opacity: 0.5
+        &:hover
+          opacity: 1
+    .sound_progress
+      width: 100%
+      background: $dark-grey
+      height: 15px
+      display: inline-block
+      margin: 0 5px
+      cursor: pointer
+      +flex_numb(0.5 0 50px)
+      margin: 0
+      .sound_checker
+        background: #6f6f6f
+        display: block
+        height: 15px
+        width: 0%
+        &.muted_sound
+          display: none
+    .fullscreen
+      +flex_numb(0 1 20px)
+      min-width: 25px
+      min-height: 25px
+      margin: 0 10px
+      display: inline-block
+      cursor: pointer
+      background: url('../img/fullscreen_up.png') no-repeat center center
+      opacity: 0.5
+      &:hover
+        opacity: 1
+      &.fullscreenOn
+        background: url('../img/fullscreen_down.png') no-repeat center center

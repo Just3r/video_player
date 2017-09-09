@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <title>Simple_video_player</title>
+        <link rel="stylesheet" href="stylesheet/screen.css" media="screen" title="no title" charset="utf-8">
+
+    </head>
+    <body>
+
+        <div class="video_player" id="main_body">
+
+            <video id="player" preload="auto" poster="img/sll.png">
+                <source src="video/small.mp4.mp4" type="video/mp4" id="source1">
+                <source src="video/small.webmsd.webm" type="video/webm" id="source2">
+                <source src="video/small.oggtheora.ogv" type="video/ogv" id="source3">
+
+            </video>
+
+            <div class="big_buttons" id="big_buttons_container">
+                <div class="button" id="big_center_button"></div>
+            </div>
+
+            <div class="control_panel" id="control_panel_fs">
+                <div class="ppr" id='playButton'></div>
+
+                <div class="time_bar" id="time_field">
+                    <span id="span_toggle"></span>
+                    <span>/</span>
+                    <span id="span_total"></span>
+                </div>
+
+                <div class="progress_bar" id="progress_container">
+                    <div class="progress_checker" id="progress_status"></div>
+                </div>
+
+                <div class="sound_bar" id='sound_toggler'></div>
+
+                <div class="sound_progress" id="progress_sound">
+                    <div class="sound_checker" id="progress_checker"></div>
+                </div>
+
+                <div class="fullscreen" id='fullscreenToggler'></div>
+
+            </div>
+
+        </div>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/player.js"></script>
+        <script type="text/javascript" src="js/playerView.js"></script>
+    </body>
+</html>
